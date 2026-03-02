@@ -22,12 +22,13 @@
 }
 /* ── LIGHT MODE OVERRIDES ── */
 html.light{
-  --bg:#f2f2f8; --bg2:#ebebf5; --bg3:#e4e4f0; --card:#eeeef8;
-  --white:#0a0a18; --muted:#9090b8; --muted2:#6060a0;
-  --border:rgba(100,80,200,0.12); --border-lime:rgba(40,160,200,0.2);
+  --bg:#f0f0f8; --bg2:#e8e8f4; --bg3:#e0e0ee; --card:#eaeaf4;
+  --white:#080818; --muted:#7070a0; --muted2:#4a4a7a;
+  --cyan:#0077b6; --cyan2:#0096d6;
+  --border:rgba(80,60,180,0.14); --border-lime:rgba(0,119,182,0.22);
 }
 html.light body{background:var(--bg);color:var(--white)}
-html.light #bgc{opacity:.6;filter:hue-rotate(30deg) saturate(1.4)}
+html.light #bgc{opacity:.7;filter:hue-rotate(200deg) saturate(3) brightness(0.45) contrast(1.5)}
 html.light nav.solid{background:rgba(242,242,248,.97)}
 html.light .mq-item{color:rgba(0,0,20,.25)}
 html.light .gcard{background:#e4e4f0}
@@ -67,6 +68,55 @@ html.light .c-big em{color:var(--cyan)}
 html.light .c-email-wrap{background:var(--card)}
 html.light .c-email-addr{color:var(--white)}
 html.light .c-email-note{color:var(--muted2)}
+/* ── LIGHT MODE: hero title readable ── */
+html.light .ht-line .ht-inner{color:var(--white)}
+html.light .ht-line:nth-child(2) .ht-inner{color:var(--cyan)}
+html.light .hero-tag{color:var(--cyan)}
+html.light .hero-tag-dot{background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+html.light .hero-desc{color:#333358}
+html.light .hero-desc strong{color:var(--white)}
+html.light .hero-desc .hl{color:var(--cyan)}
+html.light .hero-scroll-cue{color:var(--muted2)}
+html.light .hsc-line{background:linear-gradient(90deg,var(--cyan),transparent)}
+html.light .hero-badge-lb{color:var(--muted2)}
+/* nav */
+html.light .nav-ls{color:var(--white)}
+html.light .nav-mark-ls{color:var(--white)}
+html.light .nav-ping{border-color:rgba(80,60,180,0.15)}
+html.light .nav-ping-dot{background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+html.light .nav-clock{color:var(--muted2)}
+html.light .nav-cta{color:var(--cyan);border-color:rgba(0,119,182,0.3)}
+html.light .nav-cta:hover{background:var(--cyan);color:#fff}
+/* marquee */
+html.light .mq{border-color:rgba(80,60,180,0.1)}
+html.light .mq-item{color:rgba(8,8,24,.22)}
+html.light .mq-item.ac{color:var(--cyan)}
+/* section labels */
+html.light .sec-label{color:var(--cyan)}
+html.light .sec-label::before{color:var(--cyan)}
+/* gcard text */
+html.light .gname{color:var(--white)}
+html.light .gdesc{color:var(--muted2)}
+html.light .gtag{border-color:rgba(80,60,180,0.15);color:var(--muted2)}
+html.light .gc-play-ring{background:var(--cyan);color:#fff}
+/* bento */
+html.light .bc-name{color:var(--muted2)}
+/* contact */
+html.light .c-plt{color:var(--cyan)}
+html.light .c-hdl{color:var(--white)}
+html.light .c-arr{color:var(--muted2)}
+html.light .c-link{background:rgba(255,255,255,.5);border-color:rgba(80,60,180,0.12)}
+html.light .c-link:hover{background:var(--cyan);border-color:var(--cyan)}
+html.light .c-link:hover .c-hdl,html.light .c-link:hover .c-arr{color:#fff}
+html.light .c-link:hover .c-plt{color:rgba(255,255,255,.7)}
+/* footer */
+html.light .ft-mid{color:var(--muted2)}
+html.light .ft-studio{color:var(--white)}
+html.light .ft-dot{background:#22c55e;box-shadow:0 0 6px #22c55e}
+/* progress bar */
+html.light #spb{background:linear-gradient(90deg,var(--cyan),var(--purple))}
+/* scroll cue */
+html.light .hsc-line{background:linear-gradient(90deg,var(--cyan),transparent)}
 /* smooth mode transitions on all key elements */
 body,nav,nav.solid,.gcard,.bc,.sfact,.owner-card,
 .glb-win,.bento-sec,.contact-sec,.about-sec,footer,
@@ -306,7 +356,7 @@ nav.solid{background:rgba(6,8,12,.96);backdrop-filter:blur(24px);padding:14px 52
 #bgc{position:fixed;inset:0;z-index:0;pointer-events:none}
 
 /* ── HERO ── */
-#hero{position:relative;z-index:10;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 52px 56px;overflow:hidden}
+#hero{position:relative;z-index:10;min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:120px 52px 56px;overflow:hidden}
 .hero-ghost-text{
   position:absolute;top:50%;left:52px;transform:translateY(-56%);
   font-family:'Bebas Neue',sans-serif;font-size:clamp(90px,18vw,280px);
@@ -319,7 +369,7 @@ nav.solid{background:rgba(6,8,12,.96);backdrop-filter:blur(24px);padding:14px 52
 }
 .hero-badge-yr{font-family:'Bebas Neue',sans-serif;font-size:80px;line-height:1;color:rgba(93,232,245,.06);letter-spacing:2px}
 .hero-badge-lb{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
-.hero-mid{position:absolute;top:50%;left:52px;right:52px;transform:translateY(-56%)}
+.hero-mid{position:relative;z-index:2}
 .hero-tag{font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--lime);margin-bottom:20px;display:flex;align-items:center;gap:12px;opacity:0;animation:hSlide .7s 1.9s var(--t) forwards}
 .hero-tag-dot{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime);flex-shrink:0}
 .hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,13vw,220px);line-height:.85;letter-spacing:2px}
@@ -330,6 +380,7 @@ nav.solid{background:rgba(6,8,12,.96);backdrop-filter:blur(24px);padding:14px 52
 .ht-line:nth-child(3) .ht-inner{animation-delay:2.3s}
 @keyframes hSlide{to{transform:translateY(0)}}
 @keyframes hFade{to{opacity:1}}
+.hero-spacer{display:none}
 .hero-foot{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid var(--border);padding-top:24px;opacity:0;animation:hFade .8s 2.7s forwards}
 .hero-desc{max-width:400px;font-size:15px;line-height:1.82;color:var(--muted2);font-weight:300}
 .hero-desc strong{color:var(--white);font-weight:600}
@@ -632,6 +683,7 @@ footer{position:relative;z-index:10;background:var(--bg);border-top:1px solid va
       <span class="ht-line"><span class="ht-inner">STUDIO.</span></span>
     </div>
   </div>
+  <div class="hero-spacer"></div>
   <div class="hero-foot">
     <p class="hero-desc">A <strong>game studio</strong> building worlds from the ground up — starting with <span class="hl">interactive experiments</span>, growing toward story-driven titles and <strong>games that leave a mark.</strong></p>
     <div class="hero-scroll-cue"><div class="hsc-line"></div>Scroll</div>
@@ -847,7 +899,7 @@ footer{position:relative;z-index:10;background:var(--bg);border-top:1px solid va
     <div class="reveal rd2">
       <div class="c-email-wrap">
         <p class="c-email-label">// Direct Email</p>
-        <a class="c-email-addr" href="mailto:laggingstick@gmail.com">laggingstick@gmail.com</a>
+        <a class="c-email-addr" href="/cdn-cgi/l/email-protection#04686563636d6a6377706d676f446369656d682a676b69"><span class="__cf_email__" data-cfemail="0a666b6d6d63646d797e6369614a6d676b636624696567">[email&#160;protected]</span></a>
         <p class="c-email-note">Drop us a line — we read every message.</p>
         <button class="c-email-copy" onclick="copyEmail(this)">Copy Address</button>
       </div>
@@ -865,7 +917,7 @@ footer{position:relative;z-index:10;background:var(--bg);border-top:1px solid va
   <div class="ft-r"><span class="ft-dot"></span>Actively Making Games</div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function focusContact(){
   document.getElementById('contact').scrollIntoView({behavior:'smooth'});
 }
@@ -1237,11 +1289,9 @@ document.addEventListener('keydown',e=>{
   if(e.key==='Escape'&&document.getElementById('glb').classList.contains('open'))closeGame();
   if(e.key==='h'||e.key==='H')window.scrollTo({top:0,behavior:'smooth'});
   if(e.key==='c'||e.key==='C')focusContact();
-  if(e.key==='Escape'){ var mn=document.getElementById('mob-nav'); if(mn&&mn.classList.contains('open'))toggleMobNav(); }
+  if(e.key==='Escape'){ const mn=document.getElementById('mob-nav'); if(mn&&mn.classList.contains('open'))toggleMobNav(); }
 });
-
 </script>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
